@@ -26,19 +26,21 @@ class _TopSearchState extends State<TopSearch>
 
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 1700),
     );
 
     opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: controller, curve: Curves.easeIn),
+      CurvedAnimation(parent: controller, curve: Curves.easeInOut),
     );
 
     scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: controller, curve: Curves.easeInOut),
+      CurvedAnimation(parent: controller, curve: Curves.easeOutExpo),
     );
 
     controller.forward();
   }
+
+
 
   @override
   void dispose() {

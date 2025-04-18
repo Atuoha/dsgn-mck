@@ -23,10 +23,9 @@ class _IntroTextState extends State<IntroText> with SingleTickerProviderStateMix
       duration: const Duration(seconds: 1),
     );
 
-    // Slide animation (bottom to top)
     _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.5),  // Start from below the screen
-      end: Offset.zero,              // End at normal position
+      begin: const Offset(0, 0.5),
+      end: Offset.zero,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -34,10 +33,9 @@ class _IntroTextState extends State<IntroText> with SingleTickerProviderStateMix
       ),
     );
 
-    // Opacity animation (start invisible, end fully visible)
     _opacityAnimation = Tween<double>(
-      begin: 0.0, // Fully transparent at the start
-      end: 1.0,   // Fully visible at the end
+      begin: 0.0,
+      end: 1.0,
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -45,7 +43,6 @@ class _IntroTextState extends State<IntroText> with SingleTickerProviderStateMix
       ),
     );
 
-    // Start animation after widget is built
     Future.delayed(Duration.zero, () {
       _controller.forward();
     });
