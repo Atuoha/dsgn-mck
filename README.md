@@ -1,4 +1,4 @@
-## A CRED MCK Flutter Implementation.
+## A DSGN MCK Flutter Implementation.
 - **Cross-Platform Support:** Full functionality across Android and iOS 
 
 
