@@ -32,7 +32,7 @@ class _MenuViewState extends State<MenuView> with SingleTickerProviderStateMixin
       vsync: this,
     );
 
-    _heightAnimation = Tween<double>(begin: 0.0, end: widget.size.height / 5.5)
+    _heightAnimation = Tween<double>(begin: 0.0, end: widget.size.height / 5.3)
         .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
@@ -61,7 +61,7 @@ class _MenuViewState extends State<MenuView> with SingleTickerProviderStateMixin
         animation: _controller,
         builder: (context, child) {
           return _controller.value == 0
-              ? const SizedBox.shrink() // Don't show when fully hidden
+              ? const SizedBox.shrink()
               : Opacity(
             opacity: _controller.value,
             child: SizedBox(
