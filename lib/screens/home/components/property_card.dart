@@ -37,7 +37,7 @@ class _PropertyCardState extends State<PropertyCard> {
                 _animatedWidth = maxWidth * 0.85;
               });
 
-              Future.delayed(const Duration(seconds: 2), () {
+              Future.delayed(const Duration(seconds: 1), () {
                 setState(() {
                   _opacity = 1.0;
                 });
@@ -85,7 +85,7 @@ class _PropertyCardState extends State<PropertyCard> {
                               children: [
                                 Expanded(
                                   child: AnimatedOpacity(
-                                    duration: const Duration(milliseconds: 100),
+                                    duration: const Duration(milliseconds: 5),
                                     opacity: _opacity,
                                     child: Center(
                                       child: Text(
