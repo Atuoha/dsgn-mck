@@ -19,6 +19,7 @@ class PropertyCard extends StatefulWidget {
 class _PropertyCardState extends State<PropertyCard> {
   double _animatedWidth = 0.0;
   double _opacity = 0.0;
+  bool showText = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class _PropertyCardState extends State<PropertyCard> {
               Future.delayed(const Duration(seconds: 1), () {
                 setState(() {
                   _opacity = 1.0;
+                  showText = true;
                 });
               });
             });
@@ -79,15 +81,15 @@ class _PropertyCardState extends State<PropertyCard> {
                               color: widget.property.blurColor.withOpacity(0.4),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                            child: Stack(
+                              alignment: Alignment.center,
                               children: [
-                                Expanded(
-                                  child: AnimatedOpacity(
-                                    duration: const Duration(milliseconds: 5),
+                                if (showText)
+                                  AnimatedOpacity(
+                                    duration: const Duration(milliseconds: 500),
                                     opacity: _opacity,
-                                    child: Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 48),
                                       child: Text(
                                         widget.property.address,
                                         overflow: TextOverflow.ellipsis,
@@ -100,18 +102,18 @@ class _PropertyCardState extends State<PropertyCard> {
                                       ),
                                     ),
                                   ),
-                                ),
-                                InkWell(
-                                  onTap: () => Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                      const MapViewScreen(),
+
+                                Positioned(
+                                  right: 0,
+                                  child: InkWell(
+                                    onTap: () => Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => const MapViewScreen(),
+                                      ),
                                     ),
-                                  ),
-                                  child: const CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    radius: 20,
-                                    child: Center(
+                                    child: const CircleAvatar(
+                                      backgroundColor: Colors.white,
+                                      radius: 20,
                                       child: Icon(
                                         Icons.chevron_right,
                                         color: AppColors.componentColor,
@@ -120,7 +122,9 @@ class _PropertyCardState extends State<PropertyCard> {
                                   ),
                                 ),
                               ],
-                            ),
+                            )
+
+
                           ),
                         ),
                       ),
