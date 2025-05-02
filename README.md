@@ -1,11 +1,6 @@
 ## A DSGN MCK Flutter Implementation.
 - **Cross-Platform Support:** Full functionality across Android and iOS 
 
-
-#### APK, SCREENSHOTS AND VIDEO RECORDING:
-- [Use this link to access these resources on Google Drive](https://drive.google.com/drive/folders/1GwkurXBgTiip6qZXRA4SYc294s1lv8qj?usp=sharing)
-
-
 #### RUN LOCALLY:
 This guide will help you clone and run this Flutter project locally.
 
